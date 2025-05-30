@@ -1,32 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.tab-panel');
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  const body = document.body;
 
+  // Tab switching
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Deselect all tabs
+    tab.addEventListener('click', e => {
+      e.preventDefault();
+      const target = tab.getAttribute('data-target');
+
       tabs.forEach(t => {
-        t.setAttribute('aria-selected', 'false');
         t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
       });
-      // Hide all panels
       panels.forEach(panel => {
-        panel.hidden = true;
         panel.classList.remove('active');
+        panel.hidden = true;
       });
 
-      // Select clicked tab
-      tab.setAttribute('aria-selected', 'true');
       tab.classList.add('active');
-
-      // Show associated panel
-      const targetId = tab.getAttribute('data-target');
-      const targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.hidden = false;
-        targetPanel.classList.add('active');
-        targetPanel.focus();
-      }
+      tab.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById(target);
+      panel.classList.add('active');
+      panel.hidden = false;
+      panel.focus();
     });
+  });
+
+  // Dark mode toggle
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    // Switch icon
+    if(body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '🔆';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
   });
 });

@@ -5,11 +5,15 @@
   box-sizing: border-box;
 }
 
-/* Body & Fonts */
-body {
+html, body {
+  height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
-  color: #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: #a188ca; /* lavender */
+  color: #121212;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,12 +21,28 @@ body {
   padding: 2rem;
 }
 
-/* Nav (Tabs) */
+body.dark-mode {
+  background-color: #0b0c16; /* dark blue */
+  color: #e0e0e0;
+}
+
+/* Header and nav */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  gap: 1rem;
+}
+
 nav {
   display: flex;
   gap: 1rem;
-  border-bottom: 2px solid #000;
-  margin-bottom: 2rem;
+  justify-content: center;
+  flex: 1;
+  border-bottom: none;
 }
 
 .tab-btn {
@@ -32,7 +52,7 @@ nav {
   padding: 0.5rem 1rem;
   font-weight: 600;
   font-size: 1rem;
-  color: #000;
+  color: inherit;
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
@@ -43,7 +63,7 @@ nav {
 
 .tab-btn[aria-selected="true"],
 .tab-btn.active {
-  border-bottom-color: #000;
+  border-bottom-color: currentColor;
   font-weight: 700;
 }
 
@@ -53,7 +73,6 @@ main {
   max-width: 700px;
 }
 
-/* Panels */
 .tab-panel {
   display: none;
 }
@@ -62,7 +81,6 @@ main {
   display: block;
 }
 
-/* Headings */
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -84,5 +102,32 @@ ul {
 p {
   margin-bottom: 1rem;
   font-size: 1rem;
-  color: #000;
+}
+
+/* Dark mode tweaks */
+body.dark-mode nav {
+  border-bottom-color: #444;
+}
+
+body.dark-mode .tab-btn:hover {
+  border-bottom-color: #bbbbbb;
+}
+
+body.dark-mode p,
+body.dark-mode ul {
+  color: #ddd;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.3s ease;
 }
