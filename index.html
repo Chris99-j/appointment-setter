@@ -3,18 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
+  <title>Chris99's Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Chris99's Portfolio</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container">
+      <h1>Chris99's Portfolio</h1>
+      <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
-  <!-- rest of your content -->
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>Hello! I'm Chris, a passionate developer eager to build great web experiences.</p>
+        <h3>Tools & Proficiencies</h3>
+        <ul class="skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Git & GitHub</li>
+          <li>Playwright</li>
+          <li>Postman</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>A personal website to showcase my projects and skills.</p>
+          </div>
+          <div class="project-card">
+            <h3>Todo List App</h3>
+            <p>A simple and clean todo list with local storage.</p>
+          </div>
+          <div class="project-card">
+            <h3>Weather Dashboard</h3>
+            <p>Check weather forecasts using OpenWeather API.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <p>Email: chris@example.com</p>
+        <p>Phone: 123-456-7890</p>
+        <p>GitHub: <a href="https://github.com/Chris99-j" target="_blank">github.com/Chris99-j</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Chris99. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
