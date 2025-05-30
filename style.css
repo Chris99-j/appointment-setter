@@ -1,94 +1,105 @@
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   background: #fff;
   color: #222;
-  line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
-/* Navbar */
 nav {
-  position: fixed;
-  width: 100%;
-  background: #f8f8f8;
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
   display: flex;
   justify-content: center;
   gap: 2rem;
+  padding: 1rem 2rem;
+  position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-nav a {
-  text-decoration: none;
-  color: #222;
+.nav-btn {
+  background: none;
+  border: none;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
   cursor: pointer;
-  padding: 5px;
+  padding: 0.25rem 0;
+  border-bottom: 3px solid transparent;
+  color: #444;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
-  color: #007BFF;
-  border-bottom: 2px solid #007BFF;
+.nav-btn:hover {
+  color: #0077ff;
 }
 
-section {
-  min-height: 100vh;
-  padding: 100px 20px 40px;
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.nav-btn.active {
+  color: #0077ff;
+  border-bottom-color: #0077ff;
+}
+
+main {
+  max-width: 720px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
 }
 
 h1, h2 {
-  margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #111;
+  margin-bottom: 1rem;
 }
 
 p {
-  max-width: 600px;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #444;
+  color: #555;
+  font-size: 1.125rem;
+  line-height: 1.6;
 }
 
 ul {
-  list-style: disc inside;
-  color: #444;
-  margin-bottom: 2rem;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+ul li {
+  background: #f0f4ff;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: #333;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+  background: #dbe7ff;
 }
 
 footer {
   text-align: center;
-  padding: 2rem;
+  color: #999;
   font-size: 0.9rem;
-  color: #666;
+  padding: 2rem 1rem;
   border-top: 1px solid #eee;
-  margin-top: 2rem;
 }
 
-/* Responsive Nav */
+/* Responsive */
 @media (max-width: 600px) {
   nav {
+    gap: 1.5rem;
     padding: 1rem;
-    gap: 1rem;
-  }
-
-  nav a {
-    font-size: 1rem;
   }
 }

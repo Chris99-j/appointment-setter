@@ -1,21 +1,17 @@
-// JS to highlight active nav link on scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+const navButtons = document.querySelectorAll('.nav-btn');
+const sections = document.querySelectorAll('.content-section');
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-      current = section.getAttribute('id');
-    }
-  });
+navButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    navButtons.forEach(btn => btn.classList.remove('active'));
+    // Add active class to clicked button
+    button.classList.add('active');
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
+    // Hide all sections
+    sections.forEach(section => section.classList.remove('active'));
+    // Show the targeted section
+    const target = button.getAttribute('data-target');
+    document.getElementById(target).classList.add('active');
   });
 });

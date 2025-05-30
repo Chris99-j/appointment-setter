@@ -3,39 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minimalist Portfolio</title>
+  <title>Minimalist Portfolio Tabs</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <nav id="navbar">
-    <a href="#about" class="nav-link">About Me</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#contact" class="nav-link">Contact Me</a>
+    <button class="nav-btn active" data-target="about">About Me</button>
+    <button class="nav-btn" data-target="projects">Projects</button>
+    <button class="nav-btn" data-target="contact">Contact Me</button>
   </nav>
 
-  <section id="about">
-    <h1>About Me</h1>
-    <p>Hello! I'm [Your Name], a passionate developer who loves building clean and functional websites. I specialize in [your skills or specialties]. Welcome to my minimalist portfolio!</p>
-  </section>
+  <main>
+    <section id="about" class="content-section active">
+      <h1>Hi, I'm [Your Name]</h1>
+      <p>I'm a developer who builds clean, modern web experiences focused on usability and simplicity. I love turning ideas into fast, scalable websites and apps.</p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Here are a few projects I’ve worked on:</p>
-    <ul>
-      <li><strong>Project One</strong> – Description of project one.</li>
-      <li><strong>Project Two</strong> – Description of project two.</li>
-      <li><strong>Project Three</strong> – Description of project three.</li>
-    </ul>
-  </section>
+    <section id="projects" class="content-section">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Project Alpha</strong> – A sleek single-page app built with React and Tailwind CSS.</li>
+        <li><strong>Portfolio Redesign</strong> – Modern minimalist portfolio built with vanilla JS and CSS.</li>
+        <li><strong>Blog CMS</strong> – Custom headless CMS using Node.js and MongoDB.</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>You can reach me via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or follow me on <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
-  </section>
+    <section id="contact" class="content-section">
+      <h2>Get in Touch</h2>
+      <p>Feel free to say hello at <a href="mailto:youremail@example.com">youremail@example.com</a> or connect on <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Chris All rights reserved.
+    &copy; 2025 [Your Name]. Built with 💙.
   </footer>
 
   <script src="script.js"></script>
