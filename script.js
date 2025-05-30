@@ -1,17 +1,32 @@
-const navButtons = document.querySelectorAll('.nav-btn');
-const sections = document.querySelectorAll('.content-section');
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
 
-navButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remove active class from all buttons
-    navButtons.forEach(btn => btn.classList.remove('active'));
-    // Add active class to clicked button
-    button.classList.add('active');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Deselect all tabs
+      tabs.forEach(t => {
+        t.setAttribute('aria-selected', 'false');
+        t.classList.remove('active');
+      });
+      // Hide all panels
+      panels.forEach(panel => {
+        panel.hidden = true;
+        panel.classList.remove('active');
+      });
 
-    // Hide all sections
-    sections.forEach(section => section.classList.remove('active'));
-    // Show the targeted section
-    const target = button.getAttribute('data-target');
-    document.getElementById(target).classList.add('active');
+      // Select clicked tab
+      tab.setAttribute('aria-selected', 'true');
+      tab.classList.add('active');
+
+      // Show associated panel
+      const targetId = tab.getAttribute('data-target');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.hidden = false;
+        targetPanel.classList.add('active');
+        targetPanel.focus();
+      }
+    });
   });
 });

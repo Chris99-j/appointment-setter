@@ -1,105 +1,88 @@
 /* Reset */
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body & Fonts */
 body {
-  background: #fff;
-  color: #222;
-}
-
-nav {
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #000;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
 
-.nav-btn {
+/* Nav (Tabs) */
+nav {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #000;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
   background: none;
   border: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 0.25rem 0;
   border-bottom: 3px solid transparent;
-  color: #444;
-  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
-.nav-btn:hover {
-  color: #0077ff;
+.tab-btn:hover {
+  border-bottom-color: #555;
 }
 
-.nav-btn.active {
-  color: #0077ff;
-  border-bottom-color: #0077ff;
+.tab-btn[aria-selected="true"],
+.tab-btn.active {
+  border-bottom-color: #000;
+  font-weight: 700;
 }
 
+/* Main content */
 main {
-  max-width: 720px;
-  margin: 2rem auto 4rem;
-  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 700px;
 }
 
-.content-section {
+/* Panels */
+.tab-panel {
   display: none;
 }
 
-.content-section.active {
+.tab-panel.active {
   display: block;
 }
 
-h1, h2 {
-  font-weight: 800;
-  color: #111;
+/* Headings */
+h1 {
+  font-size: 2rem;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-p {
-  color: #555;
-  font-size: 1.125rem;
-  line-height: 1.6;
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 ul {
-  list-style: none;
-  padding-left: 0;
+  list-style-type: disc;
+  padding-left: 1.5rem;
   margin-top: 1rem;
 }
 
-ul li {
-  background: #f0f4ff;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  color: #333;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-ul li:hover {
-  background: #dbe7ff;
-}
-
-footer {
-  text-align: center;
-  color: #999;
-  font-size: 0.9rem;
-  padding: 2rem 1rem;
-  border-top: 1px solid #eee;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  nav {
-    gap: 1.5rem;
-    padding: 1rem;
-  }
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #000;
 }

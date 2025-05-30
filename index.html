@@ -3,42 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minimalist Portfolio Tabs</title>
+  <title>Christopher Balolong | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <nav id="navbar">
-    <button class="nav-btn active" data-target="about">About Me</button>
-    <button class="nav-btn" data-target="projects">Projects</button>
-    <button class="nav-btn" data-target="contact">Contact Me</button>
-  </nav>
+  <header>
+    <nav role="tablist" aria-label="Primary">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" id="tab-about" data-target="about">About Me</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" data-target="projects">Projects</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" data-target="contact">Contact Me</button>
+    </nav>
+  </header>
 
   <main>
-    <section id="about" class="content-section active">
-      <h1>Hi, I'm [Your Name]</h1>
-      <p>I'm a developer who builds clean, modern web experiences focused on usability and simplicity. I love turning ideas into fast, scalable websites and apps.</p>
+    <section id="about" class="tab-panel active" role="tabpanel" tabindex="0" aria-labelledby="tab-about">
+      <h1>Christopher Balolong</h1>
+      <p>System Developer | QA Tester | Cybersecurity Intern</p>
+      <p>Full-stack developer with 2+ years experience in PHP, CodeIgniter, MySQL, and secure coding practices. Skilled in testing and automation with Playwright, Postman, Swagger, and Jira.</p>
+      <p>Location: Dagupan City, Philippines</p>
     </section>
 
-    <section id="projects" class="content-section">
+    <section id="projects" class="tab-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-projects" hidden>
       <h2>Projects</h2>
       <ul>
-        <li><strong>Project Alpha</strong> – A sleek single-page app built with React and Tailwind CSS.</li>
-        <li><strong>Portfolio Redesign</strong> – Modern minimalist portfolio built with vanilla JS and CSS.</li>
-        <li><strong>Blog CMS</strong> – Custom headless CMS using Node.js and MongoDB.</li>
+        <li>Human Resources Management System</li>
+        <li>Online Assistance System</li>
+        <li>Business Permit System</li>
+        <li>Emergency Reporting System</li>
+        <li>Public Information System</li>
+        <li>Case Management System</li>
+        <li>Online Market System</li>
+        <li>Online Payment System</li>
+        <li>Online Ticketing System</li>
+        <li>Project Management System</li>
+        <li>Electricity Top-Up System</li>
       </ul>
     </section>
 
-    <section id="contact" class="content-section">
-      <h2>Get in Touch</h2>
-      <p>Feel free to say hello at <a href="mailto:youremail@example.com">youremail@example.com</a> or connect on <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    <section id="contact" class="tab-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-contact" hidden>
+      <h2>Contact Me</h2>
+      <p>Email: christopherjohnbalolong@gmail.com</p>
+      <p>Phone: 09923661223</p>
+      <p>Location: Dagupan City, Pangasinan, Philippines</p>
     </section>
   </main>
 
-  <footer>
-    &copy; 2025 [Your Name]. Built with 💙.
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
