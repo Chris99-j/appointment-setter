@@ -1,42 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.tab-panel');
-  const toggleBtn = document.getElementById('dark-mode-toggle');
-  const body = document.body;
+let currentIndex = 0;
+const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+const totalItems = items.length;
 
-  // Tab switching
-  tabs.forEach(tab => {
-    tab.addEventListener('click', e => {
-      e.preventDefault();
-      const target = tab.getAttribute('data-target');
+function updateCarousel() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
 
-      tabs.forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      panels.forEach(panel => {
-        panel.classList.remove('active');
-        panel.hidden = true;
-      });
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalItems;
+  updateCarousel();
+}
 
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      const panel = document.getElementById(target);
-      panel.classList.add('active');
-      panel.hidden = false;
-      panel.focus();
-    });
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  updateCarousel();
+}
+
+// Auto-slide every 3 seconds
+setInterval(() => {
+  nextSlide();
+}, 3000);
+
+function showAbout(sectionId) {
+  document.querySelectorAll('.about-content').forEach((el) => {
+    el.classList.remove('active');
   });
+  document.getElementById(sectionId).classList.add('active');
+}
 
-  // Dark mode toggle
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+  }
 
-    // Switch icon
-    if(body.classList.contains('dark-mode')) {
-      toggleBtn.textContent = '🔆';
-    } else {
-      toggleBtn.textContent = '🌙';
-    }
-  });
-});
