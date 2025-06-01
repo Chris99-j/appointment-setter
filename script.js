@@ -7,12 +7,12 @@ themeToggle.addEventListener('click', () => {
 });
 
 function openModal(projectTitle) {
-  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('projectModal').style.display = 'flex';
   document.getElementById('modalTitle').textContent = projectTitle;
 }
 
 function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+  document.getElementById('projectModal').style.display = 'none';
 }
 const projects = {
   1: {
@@ -105,7 +105,10 @@ window.addEventListener("click", (event) => {
   }
 });
 
-document.getElementById('contactForm').addEventListener('submit', e => {
-  e.preventDefault();
-  alert('Thanks for reaching out!');
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.style.display === "flex") {
+    modal.style.display = "none";
+    document.body.style.overflow = '';
+  }
 });
+
