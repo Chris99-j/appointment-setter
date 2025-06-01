@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>🏥 Hospital Portal</h1>
+      <p class="subtitle">Welcome! Please log in.</p>
+
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <p class="demo-info">Demo: <strong>test</strong> / <strong>test</strong></p>
+
+      <div class="links">
+        <a href="register.html">Register</a>
+        <a href="forgot.html">Forgot Password?</a>
+      </div>
+
+      <div class="guest-section">
+        <p>Or</p>
+        <button id="guestBtn" class="guest-btn">Continue without an account</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Login form submit
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "test" && password === "test") {
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "home.html";  // logged-in user goes here
+      } else {
+        alert("Invalid credentials. Try again.");
+      }
+    });
+
+    // Continue as guest
+    document.getElementById("guestBtn").addEventListener("click", function () {
+      localStorage.setItem("isLoggedIn", "guest");
+      window.location.href = "home-guest.html";  // guest user goes here
+    });
+  </script>
+</body>
+</html>

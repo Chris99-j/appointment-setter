@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/phosphor-icons"></script> <!-- Optional icons lib -->
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Main Content Area -->
+    <main class="content">
+
+      <!-- HOME TAB -->
+      <section id="homeTab" class="tab-content active">
+        <h2>📋 Book an Appointment</h2>
+        <form id="appointmentForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email Address" required />
+
+    <select id="department" required>
+  <option value="">Select Department</option>
+  <option value="Cardiology">Cardiology</option>
+  <option value="Neurology">Neurology</option>
+  <option value="Pediatrics">Pediatrics</option>
+</select>
+
+<select id="doctor" required>
+  <option value="">Select Doctor</option>
+</select>
+
+<p id="availabilityInfo" style="font-style: italic; color: #555; margin-top: 0.25em;"></p>
+<input type="date" id="date" required>
+          <!-- <input type="date" id="date" required />
+          <input type="time" id="time" required /> -->
+
+          <button type="submit" class="primary-btn">Book Now</button>
+        </form>
+      </section>
+
+      <!-- MY APPOINTMENTS TAB -->
+      <section id="appointmentsTab" class="tab-content">
+        <h2>📅 My Appointments</h2>
+        <ul id="appointmentList" class="card-list">
+          <li>No appointments booked yet.</li>
+        </ul>
+      </section>
+
+      <!-- SETTINGS TAB -->
+      <section id="settingsTab" class="tab-content">
+        <h2>⚙️ Account Settings</h2>
+        <div class="settings-card">
+          <p><strong>Username:</strong> test</p>
+          <p><strong>Email:</strong> test@example.com</p>
+          <p class="note">(Demo user info only)</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav id="bottom-tabs" class="bottom-nav">
+      <button class="tab-btn active" onclick="switchTab('homeTab')">🏠<br><span>Home</span></button>
+      <button class="tab-btn" onclick="switchTab('appointmentsTab')">📅<br><span>My Appt</span></button>
+      <button class="tab-btn" onclick="switchTab('settingsTab')">⚙️<br><span>Settings</span></button>
+      <button class="tab-btn logout" onclick="logout()">🚪<br><span>Logout</span></button>
+    </nav>
+  </div>
+<script src="script.js"></script>
+<script src="guest.js"></script>
+
+  <!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</body>
+</html>
+

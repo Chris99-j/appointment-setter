@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Portal - Guest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <main class="content">
+      <section id="homeTab" class="tab-content active">
+        <h2>📋 Book an Appointment</h2>
+        <form id="appointmentForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email Address" required />
+          <select id="department" required>
+            <option value="">Select Department</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Pediatrics">Pediatrics</option>
+          </select>
+          <select id="doctor" required>
+            <option value="">Select Doctor</option>
+          </select>
+          <input type="date" id="date" required />
+          <input type="time" id="time" required />
+          <button type="submit" class="primary-btn">Book Now</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- No bottom tabs for guest -->
+
+    <button onclick="logout()" style="margin: 1em; padding: 0.5em 1em;">Logout</button>
+  </div>
+
+  <script>
+    // Redirect to login if not guest
+    window.onload = function () {
+      const status = localStorage.getItem("isLoggedIn");
+      if (!status || status !== "guest") {
+        window.location.href = "index.html";
+      }
+    };
+
+    // Logout for guest
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "index.html";
+    }
+
+    // Appointment storage and display (same as logged-in but no tab switching)
+    const appointmentForm = document.getElementById("appointmentForm");
+
+    appointmentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const doctor = document.getElementById("doctor").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+
+      alert(`Appointment booked for ${name} with ${doctor} on ${date} at ${time}`);
+      appointmentForm.reset();
+    });
+  </script>
+</body>
+</html>
